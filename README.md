@@ -1,5 +1,6 @@
 # JClash
 
+JClash is a powerful api wrapper for [Clash of clans](https://supercell.com/en/games/clashofclans/)
 *Note:- majority of the code from this repository is taken from [clashAPI](https://github.com/Lycoon/clash-api)*
 
 ## What's the difference?
@@ -35,7 +36,8 @@ ClanModel clan = clash.getClan("#2QLCY08UV");
 - Every field inside `clash` will throw `ClashAPIException, IOException`
 
 
-
+## Disclaimer
+This content is not affiliated with, endorsed, sponsored, or specifically approved by Supercell and Supercell is not responsible for it. For more information see [Supercell's Fan Content Policy.](https://supercell.com/en/fan-content-policy/)
 
 ### TODO
 - Delete keys if no key is found of the IP address.
