@@ -4,7 +4,8 @@ JClash is a powerful api wrapper for [Clash of clans](https://supercell.com/en/g
 *Note:- majority of the code from this repository is taken from [clashAPI](https://github.com/Lycoon/clash-api)*
 
 ## What's the difference?
-JClash provides dynamic key handling based on your Ip. JClash removes the need for you to create a token and link it to your IP, this allows you to focus carelessly change run your application withotu having to create a new key everytime.
+JClash provides dynamic key handling based on your Ip. JClash removes the need for you to create a token and link it to your IP,
+this allows you to focus carelessly run your application withotu having to create a new key everytime your system changes Ip.
 
 ## Requirements
 - java 15 or above
