@@ -4,7 +4,6 @@ before_install:
   - sdk install java 15.0.0-open
   - sdk use java 15.0.0-open
 install:
-  - echo "Running a custom install command"
   - gradle build
 env:
   MYVAR: "custom environment variable"
