@@ -3,7 +3,7 @@ package Core.KeyManagers;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Keys {
+public class ExistingKeyModel {
     @SerializedName("keys")
     @Expose
     private Key[] keys;
@@ -17,6 +17,10 @@ public class Keys {
         @Expose
         private String key;
 
+        @SerializedName("id")
+        @Expose
+        private String id;
+
         @SerializedName("cidrRanges")
         @Expose
         private String[] ips;
@@ -28,6 +32,9 @@ public class Keys {
         public String[] getIps() {
             return ips;
         }
+
+        public String getId() { return id; }
+
 
     }
 }
