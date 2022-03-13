@@ -1,8 +1,8 @@
 jdk:
-  - openjdk15
+  - openjdk9
 before_install:
-  - sdk install java 15.0.0-open
-  - sdk use java 15.0.0-open
+  - sdk install java 15-open
+  - sdk use java 15-open
 install:
   - gradle build
 env:
