@@ -1,0 +1,9 @@
+jdk:
+  - openjdk15
+before_install:
+  - ./custom_setup.sh
+install:
+  - echo "Running a custom install command"
+  - gradle build
+env:
+  MYVAR: "custom environment variable"
