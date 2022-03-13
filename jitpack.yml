@@ -1,8 +1,8 @@
 jdk:
   - openjdk15
 before_install:
-  - sdk install java 11.0.10-open
-  - sdk use java 11.0.10-open
+  - sdk install java 15.0.0-open
+  - sdk use java 15.0.00-open
 install:
   - echo "Running a custom install command"
   - gradle build
