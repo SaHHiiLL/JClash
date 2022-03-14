@@ -14,10 +14,33 @@ see [here](https://www.oracle.com/java/technologies/javase/jdk15-archive-downloa
 see [here](https://gradle.org/install/) to download the latest version of gradle.
 
 ## How to download it?
-Currently I lack the time and knowledge to upload this project to maven central or [jitpack](https://jitpack.io/). 
-In the meantime i suggest downloading the repository and running `gradle build` it should create a build folder in your working directory, then navigate to this path 
-`build/libs/JClash-1.0-SNAPSHOT.jar` to find your jar file. This should produce a jar which you can use in your projects!
+### For `maven`
+```xml
+<repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+</repository>
 
+
+<dependency>
+    <groupId>com.github.SaHHiiLL</groupId>
+    <artifactId>JClash</artifactId>
+    <version>1.1.1</version>
+</dependency>
+```
+### For `gradle`
+
+```
+allprojects {
+		repositories {
+			maven { url 'https://jitpack.io' }
+		}
+		
+		dependencies {
+	        implementation 'com.github.SaHHiiLL:JClash:1.1.1'
+	}
+}
+```
 
 - The library is still under development, although there are no bugs as of writing this, I do have plans to further improve this project!
 
