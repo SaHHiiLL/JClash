@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5a3cd23-dd1f-46f3-9bfc-27efe8fe4ab4" name="Changes" comment="jitpack.yml - java 17 (1)">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeyHttpRequests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeyChecker.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeyHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -230,7 +230,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
