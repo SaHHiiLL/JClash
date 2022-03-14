@@ -87,15 +87,13 @@ public class KeyHandler {
      */
     protected String createKeys(String username, String password, String ip) throws AuthException {
         HttpClient.Builder client = login(username, password);
-        String json = """
-                {
-                    "cidrRanges":
-                     ["%s"],
-                      "description": "Api key created by JClash on %s",
-                      "name": "JClash",
-                      "scopes": ["clash"]
-                }
-                """;
+        String json ="{\n" +
+                "                    \"cidrRanges\":\n" +
+                "                     [\"%s\"],\n" +
+                "                      \"description\": \"Api key created by JClash on %s\",\n" +
+                "                      \"name\": \"JClash\",\n" +
+                "                      \"scopes\": [\"clash\"]\n" +
+                "                }";
         HttpRequest.BodyPublisher bodyPublisher1 = HttpRequest.BodyPublishers
                 .ofString(String.format(json, ip, LocalDateTime.now().atZone(ZoneId.systemDefault()).toString()));
 
@@ -122,11 +120,9 @@ public class KeyHandler {
      */
     protected void deleteAllKeys (ExistingKeyModel.Key[] keys, String username, String password) throws AuthException {
         HttpClient.Builder client = login(username, password);
-        String json = """
-                    {
-                        "id": "%s"
-                    }
-                """;
+        String json = "{\n" +
+                "                        \"id\": \"%s\"\n" +
+                "                    }";
         for (ExistingKeyModel.Key key : keys) {
             deleteKey(client, json, key);
         }

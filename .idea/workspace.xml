@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5a3cd23-dd1f-46f3-9bfc-27efe8fe4ab4" name="Changes" comment="jitpack.yml - java 15.1 (0)" />
+    <list default="true" id="b5a3cd23-dd1f-46f3-9bfc-27efe8fe4ab4" name="Changes" comment="jitpack.yml - java 17 (1)">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeyHandler.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,13 +69,15 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="JClash.main" />
       <method v="2">
@@ -113,7 +119,7 @@
       <updated>1646945387127</updated>
       <workItem from="1646945475568" duration="3087000" />
       <workItem from="1647176650022" duration="4744000" />
-      <workItem from="1647252279918" duration="897000" />
+      <workItem from="1647252279918" duration="1963000" />
     </task>
     <task id="LOCAL-00003" summary="documented the code, added a condition where it would delete all the keys if no key is found with the correct IP.">
       <created>1647178995906</created>
@@ -199,7 +205,21 @@
       <option name="project" value="LOCAL" />
       <updated>1647252867368</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="jitpack.yml - java 17 (0)">
+      <created>1647253295505</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1647253295505</updated>
+    </task>
+    <task id="LOCAL-00016" summary="jitpack.yml - java 17 (1)">
+      <created>1647253564205</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1647253564205</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +247,9 @@
     <MESSAGE value="jitpack.yml - java 15 (2)" />
     <MESSAGE value="jitpack.yml - java 11 (0)" />
     <MESSAGE value="jitpack.yml - java 15.1 (0)" />
-    <option name="LAST_COMMIT_MESSAGE" value="jitpack.yml - java 15.1 (0)" />
+    <MESSAGE value="jitpack.yml - java 17 (0)" />
+    <MESSAGE value="jitpack.yml - java 17 (1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="jitpack.yml - java 17 (1)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

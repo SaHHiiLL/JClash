@@ -1,4 +1,3 @@
 before_install:
-  - sdk list java
-  - sdk install java 15.0.2-tem
-  - sdk use java 15.0.2-tem
+  - sdk install java 11.0.10-open
+  - sdk use java 11.0.10-open
