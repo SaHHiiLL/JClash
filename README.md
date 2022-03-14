@@ -32,12 +32,12 @@ see [here](https://gradle.org/install/) to download the latest version of gradle
 
 ```
 allprojects {
-		repositories {
-			maven { url 'https://jitpack.io' }
-		}
+	repositories {
+		maven { url 'https://jitpack.io' }
+	}
 		
-		dependencies {
-	        implementation 'com.github.SaHHiiLL:JClash:1.1.1'
+	dependencies {
+	   implementation 'com.github.SaHHiiLL:JClash:1.1.1'
 	}
 }
 ```
