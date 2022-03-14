@@ -8,8 +8,7 @@ JClash provides dynamic key handling based on your Ip. JClash removes the need f
 this allows you to focus carelessly run your application withotu having to create a new key everytime your system changes Ip.
 
 ## Requirements
-- java 15 or above
-- gradle 
+- java 11 or above
 
 see [here](https://www.oracle.com/java/technologies/javase/jdk15-archive-downloads.html) to download java 15.
 see [here](https://gradle.org/install/) to download the latest version of gradle.
@@ -39,6 +38,3 @@ ClanModel clan = clash.getClan("#2QLCY08UV");
 
 ## Disclaimer
 This content is not affiliated with, endorsed, sponsored, or specifically approved by Supercell and Supercell is not responsible for it. For more information see [Supercell's Fan Content Policy.](https://supercell.com/en/fan-content-policy/)
-
-### TODO
-- Delete keys if no key is found of the IP address.
