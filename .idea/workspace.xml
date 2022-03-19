@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5a3cd23-dd1f-46f3-9bfc-27efe8fe4ab4" name="Changes" comment="Updates README.md">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeysHttpRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/JClash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/JClash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeyChecker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeyHttpRequests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeysHttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeysHttpRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +41,9 @@
   </component>
   <component name="Git.Merge.Settings">
     <option name="BRANCH" value="master" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
