@@ -1,5 +1,6 @@
 package Core;
 
+import Core.Enitiy.GoldPass.GoldPass;
 import Core.Enitiy.clan.ClanModel;
 import Core.Enitiy.clanwar.WarInfo;
 import Core.Enitiy.clanwar.WarlogModel;
@@ -87,6 +88,11 @@ public class JClash extends Util {
     public CompletableFuture<WarInfo> getCWLWar(String warTag) throws IOException, ClashAPIException {
         Response res = getRequest("clanwarleagues/wars/" + formatTag(warTag));
         return CompletableFuture.supplyAsync(() ->deserialize(res, WarInfo.class));
+    }
+
+    public CompletableFuture<GoldPass> getGoldPass() throws IOException {
+        Response res = getRequest("goldpass/seasons/current");
+        return CompletableFuture.supplyAsync(() -> deserialize(res, GoldPass.class));
     }
 }
 
