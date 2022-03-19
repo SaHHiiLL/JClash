@@ -4,41 +4,100 @@ JClash is a powerful api wrapper for [Clash of clans](https://supercell.com/en/g
 *Note:- majority of the code from this repository is taken from [clashAPI](https://github.com/Lycoon/clash-api)*
 
 ## What's the difference?
-JClash provides dynamic key handling based on your Ip. JClash removes the need for you to create a token and link it to your IP,
-this allows you to focus carelessly run your application withotu having to create a new key everytime your system changes Ip.
+
+JClash provides dynamic key handling based on your Ip. JClash removes the need for you to create a token and link it to
+your IP, this allows you to focus carelessly run your application withotu having to create a new key everytime your
+system changes Ip.
 
 ## Requirements
+
 - java 15 or above
-- gradle 
+- gradle
 
 see [here](https://www.oracle.com/java/technologies/javase/jdk15-archive-downloads.html) to download java 15.
 see [here](https://gradle.org/install/) to download the latest version of gradle.
 
 ## How to download it?
-Currently I lack the time and knowledge to upload this project to maven central or [jitpack](https://jitpack.io/). 
-In the meantime i suggest downloading the repository and running `gradle build` it should create a build folder in your working directory, then navigate to this path 
-`build/libs/JClash-1.0-SNAPSHOT.jar` to find your jar file. This should produce a jar which you can use in your projects!
 
+Currently I lack the time and knowledge to upload this project to maven central or [jitpack](https://jitpack.io/). In
+the meantime i suggest downloading the repository and running `gradle build` it should create a build folder in your
+working directory, then navigate to this path
+`build/libs/JClash-1.0-SNAPSHOT.jar` to find your jar file. This should produce a jar which you can use in your
+projects!
 
-- The library is still under development, although there are no bugs as of writing this, I do have plans to further improve this project!
+- The library is still under development, although there are no bugs as of writing this, I do have plans to further
+  improve this project!
 
 ## How to use it!
 
 - Initialize `JClash` object, throws `ClashAPIException`
+
 ```java
-JClash clash = new JClash(username, password);
+JClash clash=new JClash(username,password);
 ```
-- *Note: there's also a no args construstor which you can use, **IF** you have inilized `JClash` with your username and password.*
 
-- To fetch clan information.
+- *Note: there's also a no args construstor which you can use, **IF** you have inilized `JClash` with your username and
+  password.*
+
+- All api requests are asynchronous by using `CompletableFuture`. Completable future gives the user the flexibility to
+  wait for each request and do cool stuff once completed 😎 you can read about CompletableFuture
+  more [here](https://www.baeldung.com/java-completablefuture).
+
 ```java
-ClanModel clan = clash.getClan("#2QLCY08UV");
+clash.getClan("#2QLCY08UV");
 ```
-- Every field inside `clash` will throw `ClashAPIException, IOException`
 
+This will return a `CompletableFuture<ClanModel>`, use `.thenAccept()` method to access the value inside wrapper.
 
+- `.thenAccept()` is an asynchronous method, if you want to use a blocking use `.join()`
+
+### Non blocking operation
+
+```java
+clash.getClan("#2pp").thenAccept(clan->System.out.println());
+```
+
+### Blocking operation
+
+```java
+clash.getClan("#2pp").thenAccept(clan->System.out.println()).join();
+```
+
+note - I recommend to not use `.join()` unless you want to _BLOCK_ the current thread. I would suggest to
+use `.thenAccept()` instead of `.join()`.
+
+## Warning!!!
+
+**Any `Exceptions` thrown by the completable futures will be ignored. A simple `try` `catch` block won't always be able
+to catch those exceptions**
+
+```java
+try{
+    clash.getClan("akdhb").thenApply(ClanModel::getMemberList).thenAccept(s->s.forEach(System.out::println));
+}catch(Exception e){
+    e.printStackTrace();
+}
+```
+Here's what happens:
+Basically what `.getClan()` call does is tell `JClash` "Oh, and could you like, send this? Good luck". And then your code carries on. 
+this allows some `Exceptions` to be ignored. You must handle the exceptions on their own (perks of async programing with java ~~jk~~ )
+
+This is a more appropiate way to handle `Exceptions` in JClash
+```java
+clash.getClan("#2pp")
+        .thenAccept(clan -> clan.getMemberList()
+                   .forEach(p -> System.out.println(p.getName()))
+        ).exceptionally(e -> {
+                   e.printStackTrace();
+                   return null;
+        });
+```
 ## Disclaimer
-This content is not affiliated with, endorsed, sponsored, or specifically approved by Supercell and Supercell is not responsible for it. For more information see [Supercell's Fan Content Policy.](https://supercell.com/en/fan-content-policy/)
+
+This content is not affiliated with, endorsed, sponsored, or specifically approved by Supercell and Supercell is not
+responsible for it. For more information
+see [Supercell's Fan Content Policy.](https://supercell.com/en/fan-content-policy/)
 
 ### TODO
+
 - Delete keys if no key is found of the IP address.
