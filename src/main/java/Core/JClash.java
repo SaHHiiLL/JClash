@@ -8,27 +8,28 @@ import Core.Enitiy.player.Player;
 import Core.KeyManagers.KeyChecker;
 import Core.exception.AuthException;
 import Core.exception.ClashAPIException;
-import okhttp3.*;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.rmi.UnexpectedException;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Supplier;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class JClash extends Util {
     private final OkHttpClient http;
     private static String TOKEN = "";
-    private static Logger log = Logger.getLogger(JClash.class.getName());
+    private static Logger log = LoggerFactory.getLogger(JClash.class);
 
     public JClash(String username, String password) throws ClashAPIException, IOException {
         if (TOKEN.equals("")){
             KeyChecker keyChecker = new KeyChecker();
             TOKEN = keyChecker.getValidKeys(username, password).get(0);
             if  (!TOKEN.equals("")){
-                log.log(Level.INFO, "API token generated successfully" );
+                log.info("API token generated successfully" );
             }else{
                 throw new UnexpectedException("Unexpected error uncounted while making keys for: " + username);
             }
