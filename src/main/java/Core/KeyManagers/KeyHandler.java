@@ -73,7 +73,6 @@ public class KeyHandler {
                 .thenAccept(ssl::set)
                 .join();
 
-        System.out.println(ssl.get());
         return ssl.get();
     }
 
