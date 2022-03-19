@@ -27,8 +27,8 @@ public class JClash extends Util {
 
     public JClash(String username, String password) throws ClashAPIException, IOException {
         if (TOKEN.equals("")){
-            KeyHandler keyChecker = new KeyHandler();
-            TOKEN = keyChecker.getValidKeys(username, password).get(0);
+            KeyHandler keyHandler = new KeyHandler();
+            TOKEN = keyHandler.getValidKeys(username, password).get(0);
             if  (!TOKEN.equals("")){
                 log.info("API token generated successfully" );
             }else{
