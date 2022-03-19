@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5a3cd23-dd1f-46f3-9bfc-27efe8fe4ab4" name="Changes" comment="jitpack.yml - java 17 (1)">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="b5a3cd23-dd1f-46f3-9bfc-27efe8fe4ab4" name="Changes" comment="Made all the end points async with CompletableFuture Class, now the use will need to handle the with async style.">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Core/JClash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/JClash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Core/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Core/exception/ClashAPIException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/exception/ClashAPIException.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +90,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
@@ -219,7 +224,35 @@
       <option name="project" value="LOCAL" />
       <updated>1647253564205</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added support for java 11.&#10;&#10;- merged dev branch.">
+      <created>1647255108970</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1647255108971</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Forgot to import KeyHandler.java file in to JClash.java this caused the build the fail. Fixed now!">
+      <created>1647255584044</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1647255584044</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Updates README.md">
+      <created>1647257027642</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1647257027642</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Made all the end points async with CompletableFuture Class, now the use will need to handle the with async style.">
+      <created>1647693042833</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1647693042833</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +263,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -249,7 +294,11 @@
     <MESSAGE value="jitpack.yml - java 15.1 (0)" />
     <MESSAGE value="jitpack.yml - java 17 (0)" />
     <MESSAGE value="jitpack.yml - java 17 (1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="jitpack.yml - java 17 (1)" />
+    <MESSAGE value="Added support for java 11.&#10;&#10;- merged dev branch." />
+    <MESSAGE value="Forgot to import KeyHandler.java file in to JClash.java this caused the build the fail. Fixed now!" />
+    <MESSAGE value="Updates README.md" />
+    <MESSAGE value="Made all the end points async with CompletableFuture Class, now the use will need to handle the with async style." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made all the end points async with CompletableFuture Class, now the use will need to handle the with async style." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
