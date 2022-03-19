@@ -6,7 +6,7 @@ import Core.Enitiy.clanwar.WarInfo;
 import Core.Enitiy.clanwar.WarlogModel;
 import Core.Enitiy.clanwar.league.WarLeagueGroup;
 import Core.Enitiy.player.Player;
-import Core.KeyManagers.KeyChecker;
+import Core.KeyManagers.KeyHandler;
 import Core.exception.AuthException;
 import Core.exception.ClashAPIException;
 import okhttp3.OkHttpClient;
@@ -27,8 +27,8 @@ public class JClash extends Util {
 
     public JClash(String username, String password) throws ClashAPIException, IOException {
         if (TOKEN.equals("")){
-            KeyChecker keyChecker = new KeyChecker();
-            TOKEN = keyChecker.getValidKeys(username, password).get(0);
+            KeyHandler keyHandler = new KeyHandler();
+            TOKEN = keyHandler.getValidKeys(username, password).get(0);
             if  (!TOKEN.equals("")){
                 log.info("API token generated successfully" );
             }else{
