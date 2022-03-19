@@ -12,6 +12,9 @@ import okhttp3.*;
 
 import java.io.IOException;
 import java.rmi.UnexpectedException;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -55,34 +58,34 @@ public class JClash extends Util {
         return checkResponse(res);
     }
 
-    public Player getPlayer(String playerTag) throws IOException, ClashAPIException {
+    public CompletableFuture<Player> getPlayer(String playerTag) throws IOException, ClashAPIException {
         Response res = getRequest("players/" + formatTag(playerTag));
-        return deserialize(res, Player.class);
+        return CompletableFuture.supplyAsync(() -> deserialize(res, Player.class));
     }
 
-    public ClanModel getClan(String clanTag) throws IOException, ClashAPIException {
+    public CompletableFuture<ClanModel> getClan(String clanTag) throws IOException, ClashAPIException {
         Response res = getRequest("clans/" + formatTag(clanTag));
-        return deserialize(res, ClanModel.class);
+        return CompletableFuture.supplyAsync(() -> deserialize(res, ClanModel.class));
     }
 
-    public WarInfo getCurrentWar(String clanTag) throws IOException, ClashAPIException {
+    public CompletableFuture<WarInfo> getCurrentWar(String clanTag) throws IOException, ClashAPIException {
         Response res = getRequest("clans/" + formatTag(clanTag) + "/currentwar");
-        return deserialize(res, WarInfo.class);
+        return CompletableFuture.supplyAsync(() -> deserialize(res, WarInfo.class));
     }
 
-    public WarlogModel getWarlog(String clanTag) throws IOException, ClashAPIException {
+    public CompletableFuture<WarlogModel> getWarlog(String clanTag) throws IOException, ClashAPIException {
         Response res = getRequest("clans/" + formatTag(clanTag) + "/warlog");
-        return deserialize(res, WarlogModel.class);
+        return CompletableFuture.supplyAsync(() -> deserialize(res, WarlogModel.class));
     }
 
-    public WarLeagueGroup getCWLGroup(String clanTag) throws IOException, ClashAPIException {
+    public CompletableFuture<WarLeagueGroup> getCWLGroup(String clanTag) throws IOException, ClashAPIException {
         Response res = getRequest("clans/" + formatTag(clanTag) + "/currentwar/leaguegroup");
-        return deserialize(res, WarLeagueGroup.class);
+        return CompletableFuture.supplyAsync(()->deserialize(res, WarLeagueGroup.class));
     }
 
-    public WarInfo getCWLWar(String warTag) throws IOException, ClashAPIException {
+    public CompletableFuture<WarInfo> getCWLWar(String warTag) throws IOException, ClashAPIException {
         Response res = getRequest("clanwarleagues/wars/" + formatTag(warTag));
-        return deserialize(res, WarInfo.class);
+        return CompletableFuture.supplyAsync(() ->deserialize(res, WarInfo.class));
     }
 }
 

@@ -1,5 +1,6 @@
 package Core;
 
+import Core.Enitiy.player.League;
 import Core.exception.*;
 import com.google.gson.Gson;
 import okhttp3.Response;
@@ -9,14 +10,22 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Util {
+    private static Logger log = Logger.getLogger(Util.class.getName());
     public final static String URL = "https://api.clashofclans.com/";
     public final static String API_VERSION = "v1";
     final static Gson gson = new Gson();
 
-    public static <G> G deserialize(Response res, Class<G> obj) throws IOException {
-        String json = res.body().string();
+    public static <G> G deserialize(Response res, Class<G> obj)  {
+        String json = null;
+        try {
+            json = res.body().string();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         G deserialized = gson.fromJson(json, obj);
         res.close();
         return deserialized;
