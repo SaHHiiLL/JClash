@@ -6,7 +6,7 @@ JClash is a powerful api wrapper for [Clash of clans](https://supercell.com/en/g
 ## What's the difference?
 
 JClash provides dynamic key handling based on your Ip. JClash removes the need for you to create a token and link it to
-your IP, this allows you to focus carelessly run your application withotu having to create a new key everytime your
+your IP, this allows you to focus carelessly run your application without having to create a new key everytime your
 system changes Ip.
 
 ## Requirements
@@ -18,15 +18,35 @@ see [here](https://www.oracle.com/java/technologies/javase/jdk15-archive-downloa
 see [here](https://gradle.org/install/) to download the latest version of gradle.
 
 ## How to download it?
+### For `maven`
+```xml
+<repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+</repository>
 
-Currently I lack the time and knowledge to upload this project to maven central or [jitpack](https://jitpack.io/). In
-the meantime i suggest downloading the repository and running `gradle build` it should create a build folder in your
-working directory, then navigate to this path
-`build/libs/JClash-1.0-SNAPSHOT.jar` to find your jar file. This should produce a jar which you can use in your
-projects!
 
-- The library is still under development, although there are no bugs as of writing this, I do have plans to further
-  improve this project!
+<dependency>
+    <groupId>com.github.SaHHiiLL</groupId>
+    <artifactId>JClash</artifactId>
+    <version>1.2.1</version>
+</dependency>
+```
+### For `gradle`
+
+```
+allprojects {
+	repositories {
+		maven { url 'https://jitpack.io' }
+	}
+		
+	dependencies {
+	   implementation 'com.github.SaHHiiLL:JClash:1.1.1'
+	}
+}
+```
+
+- The library is still under development, although there are no bugs as of writing this, I do have plans to further improve this project!
 
 ## How to use it!
 
@@ -36,7 +56,7 @@ projects!
 JClash clash=new JClash(username,password);
 ```
 
-- *Note: there's also a no args construstor which you can use, **IF** you have inilized `JClash` with your username and
+- *Note: there's also a no args constructor which you can use, **IF** you have initialized `JClash` with your username and
   password.*
 
 - All api requests are asynchronous by using `CompletableFuture`. Completable future gives the user the flexibility to
