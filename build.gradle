@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-group 'io.github.sahhiill'
-version '1.1.2'
+group 'org.example'
+version '1.0-SNAPSHOT'
 
     repositories {
         mavenCentral()
