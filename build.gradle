@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group project.property('group')
+version project.property('version')
 
     repositories {
         mavenCentral()
