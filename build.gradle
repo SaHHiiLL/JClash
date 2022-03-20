@@ -10,6 +10,13 @@ version project.property('version')
         mavenCentral()
         maven { url "https://jitpack.io" }
     }
+publishing {
+    publications {
+        myPublication(MavenPublication) {
+            artifact jar
+        }
+    }
+}
 
 dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
