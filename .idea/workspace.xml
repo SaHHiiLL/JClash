@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5a3cd23-dd1f-46f3-9bfc-27efe8fe4ab4" name="Changes" comment="Changed version">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +127,7 @@
       <workItem from="1646945475568" duration="3087000" />
       <workItem from="1647176650022" duration="4744000" />
       <workItem from="1647252279918" duration="1963000" />
-      <workItem from="1647794401394" duration="81000" />
+      <workItem from="1647794401394" duration="701000" />
     </task>
     <task id="LOCAL-00003" summary="documented the code, added a condition where it would delete all the keys if no key is found with the correct IP.">
       <created>1647178995906</created>
@@ -291,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647730578268</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Changed version">
+      <created>1647794668182</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1647794668182</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
