@@ -69,7 +69,7 @@ clash.getClan("#2QLCY08UV");
 
 This will return a `CompletableFuture<ClanModel>`, use `.thenAccept()` method to access the value inside wrapper.
 
-- `.thenAccept()` is an asynchronous method, if you want to use a blocking use `.join()`
+- `.thenAccept()` is an asynchronous method, if you want to block the current thread until the value is returned use `.join()`
 
 ### Non blocking operation
 
