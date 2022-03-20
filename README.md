@@ -41,7 +41,7 @@ allprojects {
 	}
 		
 	dependencies {
-	   implementation 'com.github.SaHHiiLL:JClash:1.1.1'
+	   implementation 'com.github.SaHHiiLL:JClash:1.2.2'
 	}
 }
 ```
@@ -53,7 +53,7 @@ allprojects {
 - Initialize `JClash` object, throws `ClashAPIException`
 
 ```java
-JClash clash=new JClash(username,password);
+JClash clash = new JClash(username,password);
 ```
 
 - *Note: there's also a no args constructor which you can use, **IF** you have initialized `JClash` with your username and
@@ -93,7 +93,9 @@ to catch those exceptions**
 
 ```java
 try{
-    clash.getClan("akdhb").thenApply(ClanModel::getMemberList).thenAccept(s->s.forEach(System.out::println));
+    clash.getClan("akdhb")
+    .thenApply(ClanModel::getMemberList)
+    .thenAccept(s->s.forEach(System.out::println));
 }catch(Exception e){
     e.printStackTrace();
 }
