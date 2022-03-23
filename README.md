@@ -11,7 +11,7 @@ system changes Ip.
 
 ## Requirements
 
-- java 15 or above
+- java 11 or above
 - gradle
 
 see [here](https://www.oracle.com/java/technologies/javase/jdk15-archive-downloads.html) to download java 15.
