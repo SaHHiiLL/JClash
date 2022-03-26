@@ -11,7 +11,7 @@ system changes Ip.
 
 ## Requirements
 
-- java 15 or above
+- java 11 or above
 - gradle
 
 see [here](https://www.oracle.com/java/technologies/javase/jdk15-archive-downloads.html) to download java 15.
@@ -41,7 +41,7 @@ allprojects {
 	}
 		
 	dependencies {
-	   implementation 'com.github.SaHHiiLL:JClash:1.1.1'
+	   implementation 'com.github.SaHHiiLL:JClash:1.2.2'
 	}
 }
 ```
@@ -53,7 +53,7 @@ allprojects {
 - Initialize `JClash` object, throws `ClashAPIException`
 
 ```java
-JClash clash=new JClash(username,password);
+JClash clash = new JClash(username,password);
 ```
 
 - *Note: there's also a no args constructor which you can use, **IF** you have initialized `JClash` with your username and
@@ -69,7 +69,7 @@ clash.getClan("#2QLCY08UV");
 
 This will return a `CompletableFuture<ClanModel>`, use `.thenAccept()` method to access the value inside wrapper.
 
-- `.thenAccept()` is an asynchronous method, if you want to use a blocking use `.join()`
+- `.thenAccept()` is an asynchronous method, if you want to block the current thread until the value is returned use `.join()`
 
 ### Non blocking operation
 
@@ -93,7 +93,9 @@ to catch those exceptions**
 
 ```java
 try{
-    clash.getClan("akdhb").thenApply(ClanModel::getMemberList).thenAccept(s->s.forEach(System.out::println));
+    clash.getClan("akdhb")
+    .thenApply(ClanModel::getMemberList)
+    .thenAccept(s->s.forEach(System.out::println));
 }catch(Exception e){
     e.printStackTrace();
 }
