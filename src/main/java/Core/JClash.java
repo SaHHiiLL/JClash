@@ -90,7 +90,7 @@ public class JClash extends Util {
         return CompletableFuture.supplyAsync(() ->deserialize(res, WarInfo.class));
     }
 
-    public CompletableFuture<GoldPass> getGoldPass() throws IOException {
+    public CompletableFuture<GoldPass> getGoldPass() throws IOException, ClashAPIException {
         Response res = getRequest("goldpass/seasons/current");
         return CompletableFuture.supplyAsync(() -> deserialize(res, GoldPass.class));
     }
