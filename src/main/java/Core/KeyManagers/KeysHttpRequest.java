@@ -35,16 +35,15 @@ public class KeysHttpRequest {
                 .header("Content-Type", "application/json; charset=utf-8")
                 .POST(bodyPublisher).build();
 
-        AtomicInteger statusCode = new AtomicInteger();
         client.cookieHandler(cookieManager)
                 .build()
                 .sendAsync(request, HttpResponse.BodyHandlers.ofString())
                 .thenApply(HttpResponse::statusCode)
-                .thenAccept(statusCode::set)
-                .join();
-        if (statusCode.get() != 200){
-            throw new AuthException("Email or Password is incorrect");
-        }
+                .thenAccept(x -> {
+                    if (x != 200) {
+                        throw new AuthException("Email or Password is incorrect");
+                    }
+                }).join();
         return client;
     }
 
@@ -58,7 +57,6 @@ public class KeysHttpRequest {
     protected String getKeys(String username, String password) throws AuthException {
         HttpClient.Builder client = login(username, password);
 
-        AtomicReference<String> ssl = new AtomicReference<>("nothing");
         HttpRequest.BodyPublisher bodyPublisher1 = HttpRequest.BodyPublishers
                 .ofString("");
 
@@ -67,14 +65,11 @@ public class KeysHttpRequest {
                 .header("Content-Type", "application/json; charset=utf-8")
                 .POST(bodyPublisher1).build();
 
-        client.build()
+
+        return client.build()
                 .sendAsync(request1, HttpResponse.BodyHandlers.ofString())
                 .thenApply(HttpResponse::body)
-                .thenAccept(ssl::set)
                 .join();
-
-        System.out.println(ssl.get());
-        return ssl.get();
     }
 
     /**
@@ -104,11 +99,10 @@ public class KeysHttpRequest {
 
         AtomicReference<String> stringAtomicReference = new AtomicReference<>();
 
-        client.build().sendAsync(request, HttpResponse.BodyHandlers.ofString())
+        return client.build()
+                .sendAsync(request, HttpResponse.BodyHandlers.ofString())
                 .thenApply(HttpResponse::body)
-                .thenAccept(stringAtomicReference::set)
                 .join();
-        return stringAtomicReference.get();
     }
 
     /**

@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5a3cd23-dd1f-46f3-9bfc-27efe8fe4ab4" name="Changes" comment="gradle.properties">
+    <list default="true" id="b5a3cd23-dd1f-46f3-9bfc-27efe8fe4ab4" name="Changes" comment="Not important">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/exception/ClashAPIException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/exception/ClashAPIException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeysHttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeysHttpRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,18 +70,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  }
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-11" />
@@ -132,7 +125,11 @@
       <workItem from="1647794401394" duration="2458000" />
       <workItem from="1648039306210" duration="2305000" />
       <workItem from="1648244259347" duration="1335000" />
-      <workItem from="1648332405686" duration="412000" />
+      <workItem from="1648332405686" duration="1577000" />
+      <workItem from="1649005528308" duration="1135000" />
+      <workItem from="1649243858374" duration="45000" />
+      <workItem from="1651606435711" duration="690000" />
+      <workItem from="1651742205102" duration="785000" />
     </task>
     <task id="LOCAL-00003" summary="documented the code, added a condition where it would delete all the keys if no key is found with the correct IP.">
       <created>1647178995906</created>
@@ -330,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647799558347</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Not important">
+      <created>1648332984086</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1648332984086</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +367,6 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="documented the code, added a condition where it would delete all the keys if no key is found with the correct IP." />
     <MESSAGE value="documented the code" />
-    <MESSAGE value="Not important" />
     <MESSAGE value="jitpack.yml" />
     <MESSAGE value="jitpack.yml - java 15" />
     <MESSAGE value="jitpack.yml - java 15 (1)" />
@@ -380,7 +383,8 @@
     <MESSAGE value="gitignore" />
     <MESSAGE value="Changed version" />
     <MESSAGE value="gradle.properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="gradle.properties" />
+    <MESSAGE value="Not important" />
+    <option name="LAST_COMMIT_MESSAGE" value="Not important" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
