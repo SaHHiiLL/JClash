@@ -57,7 +57,7 @@ JClash clash = new JClash(username,password);
 ```
 
 - *Note: there's also a no args constructor which you can use, **IF** you have initialized `JClash` with your username and
-  password.*
+  password before `TOKEN` inside the `JClash` class is static, so you can either give it the value once or multiple time, will work the same :) .*
 
 - All api requests are asynchronous by using `CompletableFuture`. Completable future gives the user the flexibility to
   wait for each request and do cool stuff once completed 😎 you can read about CompletableFuture
@@ -67,7 +67,7 @@ JClash clash = new JClash(username,password);
 clash.getClan("#2QLCY08UV");
 ```
 
-This will return a `CompletableFuture<ClanModel>`, use `.thenAccept()` method to access the value inside wrapper.
+This will return a `CompletableFuture<ClanModel>`.
 
 - `.thenAccept()` is an asynchronous method, if you want to block the current thread until the value is returned use `.join()`
 
