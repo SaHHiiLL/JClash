@@ -43,6 +43,13 @@ public class JClash extends Util {
         http = new OkHttpClient();
     }
 
+    public JClash (String token){
+        http = new OkHttpClient();
+        if (TOKEN.equals("")){
+            TOKEN = token;
+        }
+    }
+
     private Request.Builder getBaseRequest(String suffix) {
         return new Request.Builder()
                 .header("authorization", "Bearer " + TOKEN)

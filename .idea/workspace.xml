@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5a3cd23-dd1f-46f3-9bfc-27efe8fe4ab4" name="Changes" comment="gradle.yml">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b5a3cd23-dd1f-46f3-9bfc-27efe8fe4ab4" name="Changes" comment="fixed error throwing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Core/JClash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/JClash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeysHttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/KeyManagers/KeysHttpRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/exception/AuthException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/exception/AuthException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/exception/BadRequestException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/exception/BadRequestException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/exception/ClashAPIException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/exception/ClashAPIException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/exception/KeyGenerationFailedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/exception/KeyGenerationFailedException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/exception/MaintenanceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/exception/MaintenanceException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/exception/NotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/exception/NotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/exception/RateLimitException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/exception/RateLimitException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/exception/UnknownException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/exception/UnknownException.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +130,7 @@
       <workItem from="1649243858374" duration="45000" />
       <workItem from="1651606435711" duration="690000" />
       <workItem from="1651742205102" duration="1530000" />
-      <workItem from="1653920113022" duration="4881000" />
+      <workItem from="1653920113022" duration="6279000" />
     </task>
     <task id="LOCAL-00003" summary="documented the code, added a condition where it would delete all the keys if no key is found with the correct IP.">
       <created>1647178995906</created>
@@ -359,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651743211445</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="fixed error throwing">
+      <created>1653932106231</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1653932106231</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,7 +407,8 @@
     <MESSAGE value="gradle.properties" />
     <MESSAGE value="Not important" />
     <MESSAGE value="gradle.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="gradle.yml" />
+    <MESSAGE value="fixed error throwing" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed error throwing" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
