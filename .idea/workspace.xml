@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5a3cd23-dd1f-46f3-9bfc-27efe8fe4ab4" name="Changes" comment="fixed error throwing">
+    <list default="true" id="b5a3cd23-dd1f-46f3-9bfc-27efe8fe4ab4" name="Changes" comment="token login support">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Core/JClash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/JClash.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +128,7 @@
       <workItem from="1649243858374" duration="45000" />
       <workItem from="1651606435711" duration="690000" />
       <workItem from="1651742205102" duration="1530000" />
-      <workItem from="1653920113022" duration="6279000" />
+      <workItem from="1653920113022" duration="8450000" />
     </task>
     <task id="LOCAL-00003" summary="documented the code, added a condition where it would delete all the keys if no key is found with the correct IP.">
       <created>1647178995906</created>
@@ -356,7 +354,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653932106231</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="token login support">
+      <created>1653933410338</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1653933410338</updated>
+    </task>
+    <task id="LOCAL-00036" summary="token login support">
+      <created>1653933464381</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1653933464381</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +420,8 @@
     <MESSAGE value="Not important" />
     <MESSAGE value="gradle.yml" />
     <MESSAGE value="fixed error throwing" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed error throwing" />
+    <MESSAGE value="token login support" />
+    <option name="LAST_COMMIT_MESSAGE" value="token login support" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

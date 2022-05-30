@@ -29,7 +29,7 @@ see [here](https://gradle.org/install/) to download the latest version of gradle
 <dependency>
     <groupId>com.github.SaHHiiLL</groupId>
     <artifactId>JClash</artifactId>
-    <version>1.2.3</version>
+    <version>1.2.4</version>
 </dependency>
 ```
 ### For `gradle`
@@ -41,7 +41,7 @@ allprojects {
 	}
 		
 	dependencies {
-	   implementation 'com.github.SaHHiiLL:JClash:1.2.3'
+	   implementation 'com.github.SaHHiiLL:JClash:1.2.4'
 	}
 }
 ```
