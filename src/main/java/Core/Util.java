@@ -35,22 +35,22 @@ public class Util {
 
         switch (res.code()) {
             case 400: {
-                throw new BadRequestException();
+                throw new BadRequestException(new Throwable("400"));
             }
             case 403: {
-                throw new AuthException();
+                throw new AuthException(new Throwable("403"));
             }
             case 404: {
-                throw new NotFoundException();
+                throw new NotFoundException(new Throwable("404"));
             }
             case 429: {
-                throw new RateLimitException();
+                throw new RateLimitException(new Throwable("429"));
             }
             case 503: {
-                throw new MaintenanceException();
+                throw new MaintenanceException(new Throwable("503"));
             }
             default: {
-                throw new UnknownException();
+                throw new UnknownException(new Throwable("500"));
             }
         }
     }

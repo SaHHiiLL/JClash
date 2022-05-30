@@ -1,6 +1,7 @@
 package Core.KeyManagers;
 
 import Core.exception.AuthException;
+import Core.exception.KeyGenerationFailedException;
 
 import java.net.CookieManager;
 import java.net.URI;
@@ -16,6 +17,7 @@ public class KeysHttpRequest {
 
     /**
      * Log in for the user
+     *
      * @param username username of the user
      * @param password password associated with the above username
      * @return a <code>HttpClient.Builder</code> which contains the cookie
@@ -27,7 +29,7 @@ public class KeysHttpRequest {
         CookieManager cookieManager = new CookieManager();
 
         HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers
-                .ofString("{\"email\":\""+username+"\",\"password\":\""+password+"\"}");
+                .ofString("{\"email\":\"" + username + "\",\"password\":\"" + password + "\"}");
         HttpRequest request = HttpRequest.newBuilder(
                         URI.create("https://developer.clashofclans.com/api/login")
                 )
@@ -41,7 +43,11 @@ public class KeysHttpRequest {
                 .thenApply(HttpResponse::statusCode)
                 .thenAccept(x -> {
                     if (x != 200) {
-                        throw new AuthException("Email or Password is incorrect");
+                        try {
+                            throw new KeyGenerationFailedException();
+                        } catch (KeyGenerationFailedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }).join();
         return client;
@@ -49,6 +55,7 @@ public class KeysHttpRequest {
 
     /**
      * get all the existing keys for the user
+     *
      * @param username username of the user
      * @param password password associated with the above username
      * @return a Json string which can be converted to a class
@@ -74,15 +81,16 @@ public class KeysHttpRequest {
 
     /**
      * Creates a single key for the user
+     *
      * @param username username of the user
      * @param password password associated with the above username
-     * @param ip , ip address for the machine which will be accessing this lib
+     * @param ip       , ip address for the machine which will be accessing this lib
      * @return a Json string which can be converted to a class
      * @throws AuthException thrown on wrong username and password
      */
     protected String createKeys(String username, String password, String ip) throws AuthException {
         HttpClient.Builder client = login(username, password);
-        String json ="{\n" +
+        String json = "{\n" +
                 "                    \"cidrRanges\":\n" +
                 "                     [\"%s\"],\n" +
                 "                      \"description\": \"Api key created by JClash on %s\",\n" +
@@ -107,12 +115,13 @@ public class KeysHttpRequest {
 
     /**
      * Deletes all the key from the user
-     * @param keys list of keys available for the user
+     *
+     * @param keys     list of keys available for the user
      * @param username username of the user
      * @param password password associated with the above username
      * @throws AuthException thrown on wrong username and password
      */
-    protected void deleteAllKeys (ExistingKeyModel.Key[] keys, String username, String password) throws AuthException {
+    protected void deleteAllKeys(ExistingKeyModel.Key[] keys, String username, String password) throws AuthException {
         HttpClient.Builder client = login(username, password);
         String json = "{\n" +
                 "                        \"id\": \"%s\"\n" +
@@ -124,9 +133,10 @@ public class KeysHttpRequest {
 
     /**
      * deleted a single key for the user
+     *
      * @param client http builder
-     * @param json POST request JSON
-     * @param key needs to be deleted
+     * @param json   POST request JSON
+     * @param key    needs to be deleted
      */
     private void deleteKey(HttpClient.Builder client, String json, ExistingKeyModel.Key key) {
         HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.ofString(String.format(json, key.getId()));

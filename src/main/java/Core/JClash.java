@@ -7,7 +7,6 @@ import Core.Enitiy.clanwar.WarlogModel;
 import Core.Enitiy.clanwar.league.WarLeagueGroup;
 import Core.Enitiy.player.Player;
 import Core.KeyManagers.KeyHandler;
-import Core.exception.AuthException;
 import Core.exception.ClashAPIException;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -37,9 +36,9 @@ public class JClash extends Util {
         }
         http = new OkHttpClient();
     }
-    public JClash () throws ClashAPIException {
+    public JClash (){
         if (TOKEN.equals("")){
-            throw new AuthException("No API token found! please initialize JClash with username and password as parameters");
+            throw new IllegalStateException("No API token found! please initialize JClash with username and password as parameters");
         }
         http = new OkHttpClient();
     }
@@ -51,7 +50,7 @@ public class JClash extends Util {
     }
 
     private Response getRequest(String url) throws IOException, ClashAPIException {
-        Response res = http.newCall(getBaseRequest(url).build()).execute();
+        Response res = http.newCall(getBaseRequest(url).get().build()).execute();
         return checkResponse(res);
     }
 
@@ -61,38 +60,122 @@ public class JClash extends Util {
     }
 
     public CompletableFuture<Player> getPlayer(String playerTag) throws IOException, ClashAPIException {
-        Response res = getRequest("players/" + formatTag(playerTag));
-        return CompletableFuture.supplyAsync(() -> deserialize(res, Player.class));
+        return CompletableFuture.supplyAsync(() ->{
+            Response res = null;
+            try {
+                res = getRequest("players/" + formatTag(playerTag));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return deserialize(res, Player.class);
+        }).exceptionally(throwable -> {
+            if (throwable != null) {
+                throw new ClashAPIException(throwable.getMessage(), throwable);
+            }
+            return null;
+        });
     }
 
     public CompletableFuture<ClanModel> getClan(String clanTag) throws IOException, ClashAPIException {
-        Response res = getRequest("clans/" + formatTag(clanTag));
-        return CompletableFuture.supplyAsync(() -> deserialize(res, ClanModel.class));
+        return CompletableFuture.supplyAsync(() ->{
+            Response res = null;
+            try {
+                res = getRequest("clans/" + formatTag(clanTag));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return deserialize(res, ClanModel.class);
+        }).exceptionally(throwable -> {
+            if (throwable != null) {
+                throw new ClashAPIException(throwable.getMessage(), throwable);
+            }
+            return null;
+        });
     }
 
     public CompletableFuture<WarInfo> getCurrentWar(String clanTag) throws IOException, ClashAPIException {
-        Response res = getRequest("clans/" + formatTag(clanTag) + "/currentwar");
-        return CompletableFuture.supplyAsync(() -> deserialize(res, WarInfo.class));
+        return CompletableFuture.supplyAsync(() ->{
+            Response res = null;
+            try {
+                res = getRequest("clans/" + formatTag(clanTag) + "/currentwar");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return deserialize(res, WarInfo.class);
+        }).exceptionally(throwable -> {
+            if (throwable != null) {
+                throw new ClashAPIException(throwable.getMessage(), throwable);
+            }
+            return null;
+        });
     }
 
     public CompletableFuture<WarlogModel> getWarlog(String clanTag) throws IOException, ClashAPIException {
-        Response res = getRequest("clans/" + formatTag(clanTag) + "/warlog");
-        return CompletableFuture.supplyAsync(() -> deserialize(res, WarlogModel.class));
+        return CompletableFuture.supplyAsync(() ->{
+            Response res = null;
+            try {
+                res = getRequest("clans/" + formatTag(clanTag) + "/warlog");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return deserialize(res, WarlogModel.class);
+        }).exceptionally(throwable -> {
+            if (throwable != null) {
+                throw new ClashAPIException(throwable.getMessage(), throwable);
+            }
+            return null;
+        });
     }
 
     public CompletableFuture<WarLeagueGroup> getCWLGroup(String clanTag) throws IOException, ClashAPIException {
-        Response res = getRequest("clans/" + formatTag(clanTag) + "/currentwar/leaguegroup");
-        return CompletableFuture.supplyAsync(()->deserialize(res, WarLeagueGroup.class));
+        return CompletableFuture.supplyAsync(() -> {
+            Response res = null;
+            try {
+                res = getRequest("clans/" + formatTag(clanTag) + "/currentwar/leaguegroup");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return deserialize(res, WarLeagueGroup.class);
+        }).exceptionally(throwable -> {
+            if (throwable != null) {
+                throw new ClashAPIException(throwable.getMessage(), throwable);
+            }
+            return null;
+        });
     }
 
     public CompletableFuture<WarInfo> getCWLWar(String warTag) throws IOException, ClashAPIException {
-        Response res = getRequest("clanwarleagues/wars/" + formatTag(warTag));
-        return CompletableFuture.supplyAsync(() ->deserialize(res, WarInfo.class));
+        return CompletableFuture.supplyAsync(() -> {
+            Response res = null;
+            try {
+                res = getRequest("clanwarleagues/wars/" + formatTag(warTag));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return deserialize(res, WarInfo.class);
+        }).exceptionally(throwable -> {
+            if (throwable != null) {
+                throw new ClashAPIException(throwable.getMessage(), throwable);
+            }
+            return null;
+        });
     }
 
     public CompletableFuture<GoldPass> getGoldPass() throws IOException, ClashAPIException {
-        Response res = getRequest("goldpass/seasons/current");
-        return CompletableFuture.supplyAsync(() -> deserialize(res, GoldPass.class));
+        return CompletableFuture.supplyAsync(() -> {
+            Response res = null;
+            try {
+                res = getRequest("goldpass/seasons/current");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return deserialize(res, GoldPass.class);
+        }).exceptionally(throwable -> {
+            if (throwable != null) {
+                throw new ClashAPIException(throwable.getMessage(), throwable);
+            }
+            return null;
+        });
     }
 }
 

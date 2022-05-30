@@ -7,8 +7,7 @@ public class ClashAPIException extends RuntimeException
 {
 	private static final long serialVersionUID = 4796823785326521342L;
 
-	public ClashAPIException(String message)
-	{
-		super(message);
+	public ClashAPIException(String message, Throwable cause) {
+		super(message, cause);
 	}
 }

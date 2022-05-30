@@ -7,7 +7,7 @@ public class BadRequestException extends ClashAPIException
 {
 	private static final long serialVersionUID = 7825222581390642435L;
 
-	public BadRequestException() {
-        super("400");
+    public BadRequestException(Throwable cause) {
+        super("400", cause);
     }
 }
