@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5a3cd23-dd1f-46f3-9bfc-27efe8fe4ab4" name="Changes" comment="token login support">
+    <list default="true" id="b5a3cd23-dd1f-46f3-9bfc-27efe8fe4ab4" name="Changes" comment="More endpoints">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Core/Enitiy/League/LeagueSeason.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Core/Enitiy/clan/ClanMember_item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Core/Enitiy/player/VerifiedPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Core/Enitiy/clan/ClanMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/Enitiy/clan/ClanMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Core/Enitiy/clan/ClanModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/Enitiy/clan/ClanModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Core/Enitiy/player/League.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/Enitiy/League/League.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Core/Enitiy/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/Enitiy/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Core/JClash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/JClash.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +78,11 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
   <component name="RunManager">
@@ -128,7 +140,8 @@
       <workItem from="1649243858374" duration="45000" />
       <workItem from="1651606435711" duration="690000" />
       <workItem from="1651742205102" duration="1530000" />
-      <workItem from="1653920113022" duration="8450000" />
+      <workItem from="1653920113022" duration="8642000" />
+      <workItem from="1653937205453" duration="4634000" />
     </task>
     <task id="LOCAL-00003" summary="documented the code, added a condition where it would delete all the keys if no key is found with the correct IP.">
       <created>1647178995906</created>
@@ -368,7 +381,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653933464381</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="update README.md">
+      <created>1653935831373</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1653935831373</updated>
+    </task>
+    <task id="LOCAL-00038" summary="update .gitignore">
+      <created>1653985369118</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1653985369118</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,7 +425,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit" />
     <MESSAGE value="documented the code, added a condition where it would delete all the keys if no key is found with the correct IP." />
     <MESSAGE value="documented the code" />
     <MESSAGE value="jitpack.yml" />
@@ -421,7 +447,10 @@
     <MESSAGE value="gradle.yml" />
     <MESSAGE value="fixed error throwing" />
     <MESSAGE value="token login support" />
-    <option name="LAST_COMMIT_MESSAGE" value="token login support" />
+    <MESSAGE value="update README.md" />
+    <MESSAGE value="update .gitignore" />
+    <MESSAGE value="More endpoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="More endpoints" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

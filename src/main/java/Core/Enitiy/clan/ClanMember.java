@@ -1,6 +1,6 @@
 package Core.Enitiy.clan;
 
-import Core.Enitiy.player.League;
+import Core.Enitiy.League.League;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

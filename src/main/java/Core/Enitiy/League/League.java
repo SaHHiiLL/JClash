@@ -1,4 +1,4 @@
-package Core.Enitiy.player;
+package Core.Enitiy.League;
 
 import Core.Enitiy.clan.IconUrls;
 import com.google.gson.annotations.Expose;

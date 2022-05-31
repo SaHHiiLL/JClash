@@ -1,5 +1,6 @@
 package Core.Enitiy.player;
 
+import Core.Enitiy.League.League;
 import Core.Enitiy.clan.ClanModel;
 import Core.Enitiy.clan.Label;
 import com.google.gson.annotations.Expose;
