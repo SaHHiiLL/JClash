@@ -5,4 +5,5 @@
 /build/classes/java/test/
 src/main/java/Main.java
 test.json
-/.idea
+/.idea/workspace.xml
+/.idea/
