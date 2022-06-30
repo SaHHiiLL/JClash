@@ -2,6 +2,7 @@
 /.gradle/
 /build/
 /build/classes/java/main/
+src/main/java/main.java
 /build/classes/java/test/
 src/main/java/Main.java
 test.json

@@ -14,20 +14,23 @@ import java.util.List;
 public class KeyHandler extends Util {
     /**
      * This method returns the json as class for ease of use
+     *
      * @param username username of the user
      * @param password password associated with the above username
      * @return an Existing Keys available for the account
      * @throws AuthException thrown on wrong username and password
-     * @throws IOException thrown by gson
+     * @throws IOException   thrown by gson
      */
     private ExistingKeyModel mapKeys(String username, String password) throws AuthException, IOException {
         String keys = new KeysHttpRequest().getKeys(username, password);
+        System.out.println(keys);
         return deserialize(keys, ExistingKeyModel.class);
     }
 
     /**
      * this method calls the http method to revoke all the keys
-     * @param keys array of keys present for the user
+     *
+     * @param keys     array of keys present for the user
      * @param username username of the user
      * @param password password associated with the username
      * @throws AuthException thrown on wrong username and password
@@ -60,20 +63,21 @@ public class KeyHandler extends Util {
         ExistingKeyModel existingKeyModel = mapKeys(username, password);
         List<String> validKeys = new ArrayList<>();
 
-        Arrays.stream(existingKeyModel.getKeys()).forEach(keyObj -> {
-            Arrays.stream(keyObj.getIps()).forEach(ips -> {
-                if (ips.equalsIgnoreCase(ip))
-                    validKeys.add(keyObj.getKey());
-            });
-        });
+//        System.out.println(Arrays.toString(existingKeyModel.getKeys()));
+//        Arrays.stream(existingKeyModel.getKeys()).forEach(keyObj -> {
+//            Arrays.stream(keyObj.getIps()).forEach(ips -> {
+//                if (ips.equalsIgnoreCase(ip))
+//                    validKeys.add(keyObj.getKey());
+//            });
+//        });
 
         if (validKeys.isEmpty()) {
             //Delete all the keys when no key is valid
-            if (existingKeyModel.getKeys().length >= 10) {
-                revokeKeys(existingKeyModel.getKeys(), username, password);
+            revokeKeys(existingKeyModel.getKeys(), username, password);
+            for (int i = 0; i < 10; i++) {
+                String createdKeys = new KeysHttpRequest().createKeys(username, password, ip);
+                validKeys.add(mapKeys(createdKeys).getKeys().getKey());
             }
-            String createdKeys = new KeysHttpRequest().createKeys(username, password, ip);
-            validKeys.add(mapKeys(createdKeys).getKeys().getKey());
         }
         return validKeys;
     }

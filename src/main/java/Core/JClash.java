@@ -19,43 +19,48 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.rmi.UnexpectedException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class JClash extends Util {
     private final OkHttpClient http;
-    private static String TOKEN = "";
+
+    private static MutexList<String> TOKEN_LIST = new MutexList<>();
     private static Logger log = LoggerFactory.getLogger(JClash.class);
 
     public JClash(String username, String password) throws ClashAPIException, IOException {
-        if (TOKEN.equals("")) {
+        if (getList().size() == 0) {
             KeyHandler keyHandler = new KeyHandler();
-            TOKEN = keyHandler.getValidKeys(username, password).get(0);
-            if (!TOKEN.equals("")) {
+            setTokenList(keyHandler.getValidKeys(username, password));
+            if (getList().size() != 0) {
                 log.info("API token generated successfully");
             } else {
                 throw new UnexpectedException("Unexpected error uncounted while making keys for: " + username);
             }
+            System.out.println("Loaded " + getList().size() + " tokens");
         }
         http = new OkHttpClient();
     }
 
     public JClash() {
-        if (TOKEN.equals("")) {
+        if (getList().size() == 0) {
             throw new IllegalStateException("No API token found! please initialize JClash with username and password as parameters");
         }
         http = new OkHttpClient();
     }
 
-    public JClash(String token) {
-        http = new OkHttpClient();
-        if (TOKEN.equals("")) {
-            TOKEN = token;
-        }
-    }
+//    public JClash(String token) {
+//        http = new OkHttpClient();
+//        if (TOKEN.equals("")) {
+//            TOKEN = token;
+//        }
+//    }
 
     private Request.Builder getBaseRequest(String suffix) {
+        String token = getList().get();
+        getList().incrementIndex();
         return new Request.Builder()
-                .header("authorization", "Bearer " + TOKEN)
+                .header("authorization", "Bearer " + token) //TODO: Replace this with new mutex list
                 .url(URL + API_VERSION + "/" + suffix);
     }
 
@@ -268,6 +273,13 @@ public class JClash extends Util {
             }
             return null;
         });
+    }
+
+    private synchronized MutexList<String> getList(){
+        return TOKEN_LIST;
+    }
+    private synchronized void setTokenList(List<String> list){
+        TOKEN_LIST = new MutexList<>(list);
     }
 }
 
