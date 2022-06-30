@@ -23,7 +23,6 @@ public class KeyHandler extends Util {
      */
     private ExistingKeyModel mapKeys(String username, String password) throws AuthException, IOException {
         String keys = new KeysHttpRequest().getKeys(username, password);
-        System.out.println(keys);
         return deserialize(keys, ExistingKeyModel.class);
     }
 

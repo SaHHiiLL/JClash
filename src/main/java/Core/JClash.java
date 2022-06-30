@@ -1,13 +1,13 @@
 package Core;
 
 import Core.Enitiy.GoldPass.GoldPass;
+import Core.Enitiy.League.League;
 import Core.Enitiy.League.LeagueSeason;
 import Core.Enitiy.clan.ClanMember_item;
 import Core.Enitiy.clan.ClanModel;
 import Core.Enitiy.clanwar.WarInfo;
 import Core.Enitiy.clanwar.WarlogModel;
 import Core.Enitiy.clanwar.league.WarLeagueGroup;
-import Core.Enitiy.League.League;
 import Core.Enitiy.player.Player;
 import Core.Enitiy.player.VerifiedPlayer;
 import Core.KeyManagers.KeyHandler;
@@ -19,23 +19,38 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.rmi.UnexpectedException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 public class JClash extends Util {
     private final OkHttpClient http;
-
     private static MutexList<String> TOKEN_LIST = new MutexList<>();
     private static Logger log = LoggerFactory.getLogger(JClash.class);
 
     public JClash(String username, String password) throws ClashAPIException, IOException {
         if (getList().size() == 0) {
-            KeyHandler keyHandler = new KeyHandler();
-            setTokenList(keyHandler.getValidKeys(username, password));
-            if (getList().size() != 0) {
-                log.info("API token generated successfully");
-            } else {
-                throw new UnexpectedException("Unexpected error uncounted while making keys for: " + username);
+            getAndRegisterKeys(username, password);
+            System.out.println("Loaded " + getList().size() + " tokens");
+        }
+        http = new OkHttpClient();
+    }
+
+    private void getAndRegisterKeys(String username, String password) throws IOException {
+        KeyHandler keyHandler = new KeyHandler();
+        setTokenList(keyHandler.getValidKeys(username, password));
+        if (getList().size() != 0) {
+            log.info("API token generated successfully for:" + username);
+        } else {
+            throw new UnexpectedException("Unexpected error uncounted while making keys for: " + username);
+        }
+    }
+
+    public JClash(List<Credentials> credentials) throws IOException {
+        if (getList().size() == 0) {
+            for (Credentials x : credentials) {
+                getAndRegisterKeys(x.getEmail(), x.getPassword());
             }
             System.out.println("Loaded " + getList().size() + " tokens");
         }
@@ -57,11 +72,14 @@ public class JClash extends Util {
 //    }
 
     private Request.Builder getBaseRequest(String suffix) {
-        String token = getList().get();
-        getList().incrementIndex();
+        String token = getList().cycle();
         return new Request.Builder()
                 .header("authorization", "Bearer " + token) //TODO: Replace this with new mutex list
                 .url(URL + API_VERSION + "/" + suffix);
+    }
+
+    public List<String> getListOfToken() {
+        return new ArrayList<>(getList());
     }
 
     private Response getRequest(String url) throws IOException, ClashAPIException {
@@ -91,7 +109,11 @@ public class JClash extends Util {
         });
     }
 
-    public CompletableFuture<ClanModel> getClan(String clanTag) throws IOException, ClashAPIException {
+//    public CompletableFuture<Player> getPlayer1(String tag) {
+//
+//    }
+
+    public CompletableFuture<ClanModel> getClan(String clanTag) throws ClashAPIException {
         return CompletableFuture.supplyAsync(() -> {
             Response res = null;
             try {
@@ -251,11 +273,11 @@ public class JClash extends Util {
      * @param responseLimit - pass 0 < to get all
      * @return
      */
-    public CompletableFuture<LeagueSeason> getLegendSeason(int responseLimit, LocalDate seasonStartDate) {
+    public CompletableFuture<LeagueSeason> getLegendSeason(LocalDate seasonStartDate, Optional<Integer> responseLimit) {
         return CompletableFuture.supplyAsync(() -> {
             String seasonStartDateString = seasonStartDate.getYear() + "-" + seasonStartDate.getMonth().getValue();
             String url;
-            if (false) {
+            if (responseLimit.isEmpty()) {
                 url = "leagues/29000022/seasons/" + seasonStartDateString;
             } else {
                 url = "leagues/29000022/seasons/" + seasonStartDateString + "?limit=" + responseLimit;
@@ -275,10 +297,11 @@ public class JClash extends Util {
         });
     }
 
-    private synchronized MutexList<String> getList(){
+    private synchronized MutexList<String> getList() {
         return TOKEN_LIST;
     }
-    private synchronized void setTokenList(List<String> list){
+
+    private synchronized void setTokenList(List<String> list) {
         TOKEN_LIST = new MutexList<>(list);
     }
 }
